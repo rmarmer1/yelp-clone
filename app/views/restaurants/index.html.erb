@@ -1,0 +1,25 @@
+<%= link_to 'Add a new restaurant', new_restaurant_path %>
+<br>
+<% if @restaurants.empty? %>
+  No restaurants yet, please add one and get reviewing!
+<% else %>
+  <% @restaurants.each do |restaurant| %>
+   <br> <%= 'Restaurant: ' + restaurant.name %>
+   <br> <%= 'Description: ' + restaurant.description %>
+    
+    <p>
+    <% reviews = restaurant.reviews %>
+    <% reviews.each do |review| %>
+    
+    <p>
+    	<%= 'Review: ' + review.description %><br>
+    	</p>
+  	<% end %>
+</p>
+		<%= link_to 'View', restaurant %><br>
+    <%= link_to 'Add review', new_restaurant_review_path(restaurant) %>
+    <hr>
+  <% end %>
+  
+  
+<% end %>

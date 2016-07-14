@@ -1,0 +1,12 @@
+<p>
+  <%= @restaurant.name %>
+</p>
+
+<p>
+  <%= @restaurant.description %>
+</p>
+
+<%= button_to 'Edit restaurant', edit_restaurant_path, method: :get %>
+<%= button_to 'Delete', restaurant_path, method: :delete, remote: true, data: { confirm: 'Are you sure?', disable_with: 'loading...' } %>
+
+<!-- the 'remote: true, etc. is Ajax-related' ... -->
